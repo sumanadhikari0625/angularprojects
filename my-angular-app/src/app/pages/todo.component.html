@@ -1,0 +1,29 @@
+<div class="todo-container">
+  <h2>Todo List</h2>
+
+  <form (ngSubmit)="addTodo()">
+    <input
+      type="text"
+      [(ngModel)]="newTodo"
+      name="todoText"
+      placeholder="Enter todo..."
+      required
+    />
+    <input type="datetime-local" [(ngModel)]="newDueDate" name="dueDate" />
+    <button type="submit">Add</button>
+  </form>
+
+  <ul>
+    <li *ngFor="let todo of todos; let i = index">
+      <input type="checkbox" [checked]="todo.done" (change)="toggleDone(i)" />
+      <span [class.done]="todo.done">{{ todo.text }}</span>
+      <small *ngIf="todo.dueDate">
+        (Due: {{ todo.dueDate | date : "short" }})</small
+      >
+      <button (click)="editTodo(i)">Edit</button>
+      <button (click)="deleteTodo(i)">Delete</button>
+    </li>
+  </ul>
+
+  <button (click)="logout()">Logout</button>
+</div>
