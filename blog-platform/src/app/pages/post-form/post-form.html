@@ -1,0 +1,15 @@
+<div class="form-container">
+  <h2>Create New Blog Post</h2>
+  <form (ngSubmit)="submit()" #form="ngForm">
+    <label>Title</label>
+    <input [(ngModel)]="title" name="title" required />
+
+    <label>Summary</label>
+    <input [(ngModel)]="summary" name="summary" required />
+
+    <label>Content</label>
+    <textarea [(ngModel)]="content" name="content" rows="8" required></textarea>
+
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+</div>

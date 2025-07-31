@@ -1,0 +1,24 @@
+<header class="navbar">
+  <div class="logo">
+    <a routerLink="/">MyBlog</a>
+  </div>
+
+  <nav class="nav-links">
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+
+    <ng-container *ngIf="userEmail; else guestLinks">
+      <span class="user-email">👋 {{ userEmail }}</span>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </ng-container>
+
+    <ng-template #guestLinks>
+      <a routerLink="/login" routerLinkActive="active">Login</a>
+      <a routerLink="/register" routerLinkActive="active">Register</a>
+    </ng-template>
+  </nav>
+</header>

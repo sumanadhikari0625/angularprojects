@@ -1,0 +1,10 @@
+<div class="posts-grid">
+  <div class="post-card" *ngFor="let post of posts">
+    <h2>{{ post.title }}</h2>
+    <p class="summary">{{ post.summary }}</p>
+    <p class="author">{{ post.author }}</p>
+    <a [routerLink]="['/blog', post.id]">Read more →</a>
+    <button (click)="deletePost(post.id)" class="delete-btn">Delete</button>
+  </div>
+  <a routerLink="/create" class="btn">+ Create Post</a>
+</div>

@@ -1,0 +1,18 @@
+<div class="login-container">
+  <h2>🔑 Login</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <label>
+      Email
+      <input type="email" formControlName="email" />
+    </label>
+    <label>
+      Password
+      <input type="password" formControlName="password" />
+    </label>
+
+    <button type="submit">Login</button>
+
+    <div class="error" *ngIf="loginError">Invalid email or password</div>
+  </form>
+</div>

@@ -1,0 +1,55 @@
+<div class="register-container">
+  <h2>🔐 Register</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label>
+      Name
+      <input type="text" formControlName="name" placeholder="Your full name" />
+      <span
+        class="error"
+        *ngIf="
+          registerForm.get('name')?.touched && registerForm.get('name')?.invalid
+        "
+        >Name is required</span
+      >
+    </label>
+
+    <label>
+      Email
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="you@example.com"
+      />
+      <span
+        class="error"
+        *ngIf="
+          registerForm.get('email')?.touched &&
+          registerForm.get('email')?.invalid
+        "
+      >
+        Enter a valid email
+      </span>
+    </label>
+
+    <label>
+      Password
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Min 6 characters"
+      />
+      <span
+        class="error"
+        *ngIf="
+          registerForm.get('password')?.touched &&
+          registerForm.get('password')?.invalid
+        "
+      >
+        Password must be at least 6 characters
+      </span>
+    </label>
+
+    <button type="submit">Register</button>
+  </form>
+</div>
