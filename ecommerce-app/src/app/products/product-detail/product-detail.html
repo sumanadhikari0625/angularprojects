@@ -1,0 +1,35 @@
+<div class="product-detail-wrapper" *ngIf="product$ | async as product">
+  <div class="product-detail-container">
+    <!-- Product Image -->
+    <div class="image-section">
+      <img [src]="product.image" alt="{{ product.title }}" />
+    </div>
+
+    <!-- Product Information -->
+    <div class="info-section">
+      <h1 class="product-title">{{ product.title }}</h1>
+
+      <div class="price-rating-row">
+        <span class="price">${{ product.price }}</span>
+        <span class="rating">⭐ 4.3 (5,230 ratings)</span>
+      </div>
+
+      <p class="product-description">{{ product.description }}</p>
+
+      <div class="actions">
+        <button class="add-to-cart-btn" (click)="addToCart(product)">
+          Add to Cart
+        </button>
+        <button class="buy-now-btn">Buy Now</button>
+      </div>
+
+      <div class="delivery">
+        <p>
+          <strong>Delivery:</strong> Free delivery by
+          <span class="date">Friday, 26 July</span>
+        </p>
+        <p><strong>Returns:</strong> 7-day return policy</p>
+      </div>
+    </div>
+  </div>
+</div>

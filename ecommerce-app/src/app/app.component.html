@@ -1,0 +1,16 @@
+<nav>
+  <a routerLink="/">Home</a>
+  <a routerLink="/cart">Cart</a>
+  <a routerLink="/orders">Orders</a>
+
+  <span *ngIf="isLoggedIn | async">
+    Welcome {{ user }} |
+    <button (click)="logout()">Logout</button>
+  </span>
+  <span *ngIf="!(isLoggedIn | async)">
+    <a routerLink="/login">Login</a> / <a routerLink="/signup">Signup</a>
+  </span>
+</nav>
+
+<hr />
+<router-outlet></router-outlet>

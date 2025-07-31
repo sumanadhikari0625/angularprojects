@@ -1,0 +1,26 @@
+<header class="header">
+  <div class="logo">
+    <a routerLink="/">Ecommerce<span>App</span></a>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search for products..." />
+    <button>🔍</button>
+  </div>
+
+  <nav>
+    <a routerLink="/">Home</a>
+    <a routerLink="/cart">Cart</a>
+    <a routerLink="/orders">Orders</a>
+
+    <span *ngIf="isLoggedIn$ | async">
+      Welcome {{ user }} |
+      <button (click)="logout()">Logout</button>
+    </span>
+
+    <span *ngIf="!(isLoggedIn$ | async)">
+      <a routerLink="/login">Account</a>
+    </span>
+  </nav>
+  <hr />
+</header>

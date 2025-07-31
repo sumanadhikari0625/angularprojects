@@ -1,0 +1,18 @@
+<div class="orders-container">
+  <h2>Your Orders</h2>
+
+  <div *ngIf="orders.length; else noOrders">
+    <div *ngFor="let order of orders" class="order-card">
+      <p>
+        <strong>Order #{{ order.id }}</strong>
+      </p>
+      <p>Total: ₹{{ order.total }}</p>
+      <p>Date: {{ order.date }}</p>
+      <button class="view-details">View Details</button>
+    </div>
+  </div>
+
+  <ng-template #noOrders>
+    <p>You haven’t placed any orders yet.</p>
+  </ng-template>
+</div>
